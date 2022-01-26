@@ -1,4 +1,10 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using MVCTest.Data;
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<MVCTestContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MVCTestContext")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
