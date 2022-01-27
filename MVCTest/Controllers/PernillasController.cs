@@ -28,7 +28,7 @@ namespace MVCTest.Controllers
                 FirstName = p.FirstName,
                 
             });
-            return View(await _context.Pernilla.ToListAsync());
+            return View(nameof(Index), await _context.Pernilla.ToListAsync());
         }
 
         // GET: Pernillas/Details/5
